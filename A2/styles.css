@@ -1,0 +1,209 @@
+/* Allgemeine Stile */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: auto;
+    padding: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.headline {
+    margin: 0;
+    color: #277d52;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* NEU: Container für drei Logos im Header */
+#logoRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* NEU: Einheitlicher Logo-Stil */
+.header-logo {
+    max-height: 80px;
+    width: auto;
+}
+
+/* Wird ggf. noch für altes Logo gebraucht */
+.headlineContent {
+    height: 80px;
+    width: auto;
+    max-width: 245px;
+}
+
+#parentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#narrowHeader {
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+#wideHeader {
+    flex: 1;
+    text-align: center;
+}
+
+canvas {
+    margin: 20px auto;
+    display: block;
+    width: 90%;
+    max-width: 1400px;
+    height: auto;
+    background-color: rgba(222, 222, 231, 0.8);
+    border: 1px solid #ccc;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-images {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-images img {
+    height: 70px;
+    width: auto;
+}
+
+.footer-links {
+    text-align: center;
+    display: flex;
+    margin-left: 25px;
+    gap: 5px;
+}
+
+.footer-link {
+    color: #277d52;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .headline {
+        font-size: 18px;
+    }
+
+    .header-logo {
+        max-height: 60px;
+    }
+
+    .headlineContent {
+        height: 60px;
+        max-width: 183px;
+    }
+
+    #parentHeader {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #logoRow {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-images {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline {
+        font-size: 16px;
+    }
+
+    .header-logo {
+        max-height: 50px;
+    }
+
+    .headlineContent {
+        height: 50px;
+        max-width: 153px;
+    }
+
+    #parentHeader {
+        gap: 5px;
+    }
+
+    #logoRow {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-images {
+        gap: 10px;
+    }
+}
+
+
+#fullscreen-btn {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: rgb(200, 196, 196);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #fullscreen-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: rgba(255, 255, 255, 0.864);
+  }
+
+  #fullscreen-btn:hover {
+    background: rgba(69, 69, 69, 0.7);
+  }
