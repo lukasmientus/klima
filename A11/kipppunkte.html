@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktivität 11: Kipppunkte</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <style>
+    #controlsBar{
+      max-width: 1400px; width: 90%; margin: 10px auto 0 auto;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:center;
+    }
+    #controlsBar .group{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      background: rgba(255,255,255,0.90);
+      border: 1px solid #ddd; padding: 8px 10px; border-radius: 12px;
+    }
+    #controlsBar button{
+      padding: 10px 12px; border-radius: 10px; border: 1px solid #bbb;
+      background:#fff; cursor:pointer; font-weight:700; user-select:none; touch-action: manipulation;
+    }
+    #controlsBar button.primary{ background:#e9f6ff; border-color:#7fb6ff; }
+    #controlsBar button.danger{ background:#fff3f3; border-color:#ffb3b3; }
+    #controlsBar .pill{
+      font-weight: 800; padding: 8px 12px; border-radius: 999px;
+      border: 1px solid #ddd; background: rgba(255,255,255,0.90);
+      font-variant-numeric: tabular-nums;
+    }
+
+    #stageWrap{ max-width:1400px; width:90%; margin:10px auto 0 auto; position:relative; }
+    #canvas{
+      width:100%; height:auto; display:block;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 55%, #ffffff 100%);
+      touch-action:none;
+    }
+
+    #panel{
+      max-width: 1400px; width: 90%; margin: 10px auto 20px auto;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      padding: 10px 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    @media (max-width: 920px){
+      #panel{ grid-template-columns: 1fr; }
+    }
+
+    #chart{ width:100%; height:auto; border-radius: 12px; border:1px solid #e3e3e3; background:#fff; display:block; }
+    #feedback{ border-left: 5px solid #7fb6ff; padding: 10px 12px; border-radius: 12px; background: #f5fbff; line-height: 1.35; }
+
+    #fullscreen-btn{
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+    #fullscreen-btn img{ width:24px; height:24px; display:block; }
+  </style>
+</head>
+
+<header>
+  <div id="parentHeader">
+    <div id="logoRow">
+      <a href="https://klimawandel-schule.de/de"><img class="header-logo" src="img/logo.png" alt="Logo 1"></a>
+      <a href="https://www.uni-potsdam.de/de/physikdidaktik/willkommen"><img class="header-logo" src="img/unipotsdam_logo.png" alt="Logo Uni Potsdam"></a>
+      <a href="https://lernen.digital/"><img class="header-logo" src="img/kompetenzverbund-lernen-digital.svg" alt="Logo lernen.digital"></a>
+    </div>
+    <div id="wideHeader">
+      <span class="headline">Aktivität 11: Kipppunkte – Wenn das Klima kippt …</span>
+    </div>
+  </div>
+</header>
+
+<body>
+  <div id="controlsBar" aria-label="Steuerung">
+    <div class="group" aria-label="Aktionen">
+      <button id="btnNudge" type="button">Ball anstoßen</button>
+      <button id="btnRecord" type="button" class="primary">Messpunkt hinzufügen</button>
+      <button id="btnUndo" type="button">Letzten löschen</button>
+      <button id="btnReset" type="button" class="danger">Reset</button>
+    </div>
+
+    <div class="group" aria-label="Zähler">
+      <span class="pill">Links: <span id="countL">0</span></span>
+      <span class="pill">Rechts: <span id="countR">0</span></span>
+      <span class="pill">Netto (R−L): <span id="net">0</span></span>
+      <span class="pill">Auslenkung: <span id="disp">0</span> mm</span>
+    </div>
+  </div>
+
+  <div id="stageWrap">
+    <canvas id="canvas" width="1400" height="787"></canvas>
+    <button id="fullscreen-btn" title="Vollbild"><img src="img/fullscreen.png" alt="fullscreen"></button>
+  </div>
+
+  <div id="panel">
+    <canvas id="chart" width="420" height="260" aria-label="Diagramm"></canvas>
+    <div id="feedback"></div>
+  </div>
+</body>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-images">
+      <a><img class="header-logo" src="img/logo2.png" alt="Bundesministerium für Bildung und Forschung"></a>
+      <a><img class="header-logo" src="img/logo3.png" alt="Europäische Union"></a>
+    </div>
+    <div class="footer-links">
+      <a href="https://klimawandel-schule.de/de/kontakt" class="footer-link">Kontakt</a>
+      <a href="https://klimawandel-schule.de/de/impressum" class="footer-link">Impressum</a>
+      <a href="https://klimawandel-schule.de/de/datenschutz" class="footer-link">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+</html>
