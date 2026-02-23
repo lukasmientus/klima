@@ -128,7 +128,7 @@ function updateCubeDrawDims(c){
  */
 
 const PHI_A_WATER_FRACTION = 0.40;  // "eher nur 40% der Wassermenge benötigt" below rock top
-const START_WATER_ML = 3.0;
+const START_WATER_ML = 10.0;
 
 function makeBeakerModel(kind){
   return {
@@ -624,7 +624,7 @@ function drawRockStackA(beakerRect, b){
   const N = 4;
   const rocks = [];
 
-  const W = beakerRect.w * 0.68;
+  const W = beakerRect.w * 0.57;
   const H = beakerRect.h * 0.28;
 
   const xFracs = [0.50, 0.60, 0.42, 0.58];
