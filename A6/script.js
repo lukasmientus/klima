@@ -624,7 +624,7 @@ function drawRockStackA(beakerRect, b){
   const N = 4;
   const rocks = [];
 
-  const W = beakerRect.w * 0.57;
+  const W = beakerRect.w * 0.37;
   const H = beakerRect.h * 0.28;
 
   const xFracs = [0.50, 0.60, 0.42, 0.58];
